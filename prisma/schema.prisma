@@ -9,3 +9,46 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Usuarios {
+  id        String     @id @default(uuid())
+  nome      String
+  sobrenome String
+  email     String     @unique
+  senha     String
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime?  @map("updated_at")
+  Projetos  Projetos[]
+
+  @@map("usuarios")
+}
+
+model Projetos {
+  id        String   @id @default(uuid())
+  titulo    String
+  tags      String[]
+  link      String
+  descricao String
+
+  usuarios Usuarios @relation(fields: [usuariosId], references: [id])
+
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime? @map("updated_at")
+  usuariosId String    @map("usuarios_id")
+  Imagens    Imagens[]
+
+  @@map("projetos")
+}
+
+model Imagens {
+  id String @id @default(uuid())
+
+  imagem  String
+  projeto Projetos @relation(fields: [projetosId], references: [id])
+
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime? @map("updated_at")
+  projetosId String    @map("projetos_id")
+
+  @@map("imagens")
+}
