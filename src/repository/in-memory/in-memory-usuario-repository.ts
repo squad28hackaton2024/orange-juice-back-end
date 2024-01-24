@@ -28,7 +28,7 @@ export class InMemoryUsuarioRepository implements IUsuarios {
 
         if(!usuario) return null
 
-        return null
+        return usuario
     }
 
 }
