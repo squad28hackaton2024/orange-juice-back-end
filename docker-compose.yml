@@ -6,5 +6,5 @@ services:
       - "5432:5432"
     environment:
       - POSTGRESQL_USERNAME=orageportfolio
-      - POSTGRESQL_PASSWORD=squad28orangejuyce*
+      - POSTGRESQL_PASSWORD=squad28orangejuyce
       - POSTGRESQL_DATABASE=orageportfolio
