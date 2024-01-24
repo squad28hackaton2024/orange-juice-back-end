@@ -1,5 +1,6 @@
 import { IUsuarios } from "@/interface/i-usuarios";
 import { Prisma, Usuarios } from "@prisma/client";
+import { hash } from "bcryptjs";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryUsuarioRepository implements IUsuarios {
@@ -12,7 +13,7 @@ export class InMemoryUsuarioRepository implements IUsuarios {
             nome: data.nome,
             sobrenome: data.sobrenome,
             email: data.email,
-            senha: data.senha,
+            senha: await hash(data.senha, 6),
             createdAt: new Date(),
             updatedAt: null
         }
