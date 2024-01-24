@@ -18,8 +18,13 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
+    "@prisma/client": "5.8.1",
     "@types/node": "20.11.5",
     "@types/supertest": "6.0.2",
+    "@typescript-eslint/eslint-plugin": "6.19.1",
+    "@typescript-eslint/parser": "6.19.1",
+    "eslint": "8.56.0",
+    "prisma": "5.8.1",
     "supertest": "6.3.4",
     "tsx": "4.7.0",
     "typescript": "5.3.3",
