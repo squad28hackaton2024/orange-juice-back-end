@@ -4,7 +4,8 @@
   "description": "Hackathon Orange Juice Back End",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "",
