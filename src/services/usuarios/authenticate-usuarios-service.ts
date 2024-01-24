@@ -23,9 +23,9 @@ export class AuthenticateUsuariosService {
 
         const passwordHash = new PasswordHash()
 
-        const aSenhaEValida = await passwordHash.compareSenha(data.senha, usuarios.senha)
+        const eSenhaEValida = await passwordHash.compareSenha(data.senha, usuarios.senha)
 
-        if(!usuarios) throw new CredenciaisInvalidasError()
+        if(!eSenhaEValida) throw new CredenciaisInvalidasError()
 
         return {
             usuarios
