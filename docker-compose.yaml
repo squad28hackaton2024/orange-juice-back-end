@@ -1,0 +1,10 @@
+version: '2'
+services:
+  postgresql:
+    image: 'bitnami/postgresql'
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USERNAME=orageportfolio
+      - POSTGRESQL_PASSWORD=squad28orangejuyce*
+      - POSTGRESQL_DATABASE=orageportfolio
