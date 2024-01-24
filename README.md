@@ -1,7 +1,7 @@
 # orange-juice-back-end
 Hackathon Orange Juice Back End
 
-# Olá Squad 28, VAAAAMO PRA CIIMA
+# Olá Squad 28, VAMO PRA CIMA!
 
 Para começar a colaborar com o projeto
 
