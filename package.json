@@ -1,0 +1,17 @@
+{
+  "name": "orange-juice-back-end",
+  "version": "1.0.0",
+  "description": "Hackathon Orange Juice Back End",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/jwt": "8.0.0",
+    "dotenv": "16.4.0",
+    "fastify": "4.20.0"
+  }
+}
