@@ -10,7 +10,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     const getBodySchema = z.object({
         nome: z.string(),
         sobrenome: z.string(),
-        email: z.string().email(),
+        email: z.string().email('O email não está no formato correto'),
         senha: z.string().min(8, 'Mínimo de 8 caracteres')
     })
 
