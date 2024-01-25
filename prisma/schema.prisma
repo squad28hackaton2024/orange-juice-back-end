@@ -29,26 +29,16 @@ model Projetos {
   tags      String[]
   link      String
   descricao String
+  imagens   String?
 
   usuarios Usuarios @relation(fields: [usuariosId], references: [id])
 
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime? @map("updated_at")
   usuariosId String    @map("usuarios_id")
-  Imagens    Imagens[]
+ 
 
   @@map("projetos")
 }
 
-model Imagens {
-  id String @id @default(uuid())
 
-  imagem  String
-  projeto Projetos @relation(fields: [projetosId], references: [id])
-
-  createdAt  DateTime  @default(now()) @map("created_at")
-  updatedAt  DateTime? @map("updated_at")
-  projetosId String    @map("projetos_id")
-
-  @@map("imagens")
-}
