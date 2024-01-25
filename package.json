@@ -13,8 +13,8 @@
     "test:watch:unit": "vitest --dir src/services",
     "start:dev": "tsx watch src/server.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords":[], 
+  "author":"",
   "license": "ISC",
   "dependencies": {
     "@fastify/jwt": "8.0.0",
