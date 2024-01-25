@@ -10,3 +10,5 @@ export async function jwtVerifyToken(request: FastifyRequest, reply: FastifyRepl
         })
     }
 }
+
+
