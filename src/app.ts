@@ -1,8 +1,13 @@
 import fastify from "fastify";
 import { ZodError } from "zod";
 import { usuarioRoutes } from "./rotas/usuario-routes";
+import fastifyJwt from "@fastify/jwt";
+import { env } from "./env/env";
 
 export const app = fastify()
+app.register(fastifyJwt,{
+    secret:env.JWT_SECRET
+})
 
 app.register(usuarioRoutes, {
     prefix: '/usuarios'
