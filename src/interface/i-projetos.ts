@@ -6,4 +6,5 @@ export interface IProjetos {
     deleteById(id: string): Promise<Projetos>
     findAll(): Promise<Projetos[]>
     updateImagemById(id: string, imagens?: string): Promise<Projetos>
+    updateById(data: Prisma.ProjetosUncheckedUpdateInput, id: string): Promise<Projetos>
 }

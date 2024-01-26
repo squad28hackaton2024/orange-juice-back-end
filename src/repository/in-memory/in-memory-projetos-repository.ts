@@ -40,4 +40,8 @@ export class InMemoryProjetosRepository implements IProjetos {
         return this.projetos[0]
     }
 
+    async updateById(data: Prisma.ProjetosUncheckedUpdateInput, id: string) {
+        return this.projetos[0]
+     }
+
 }
