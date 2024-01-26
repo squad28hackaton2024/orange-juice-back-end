@@ -27,7 +27,7 @@ describe('Find All Projetos [GET]', () => {
         const usuario = await request(app.server)
                             .post('/usuarios/login')
                             .send({
-                                email: 'lucas@email.com',
+                                email: 'gabriel@email.com',
                                 senha: 'funciona por favor'
                             })
 
