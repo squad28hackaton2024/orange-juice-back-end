@@ -41,4 +41,19 @@ export class ProjetosRepository implements IProjetos {
 
         return projeto
     }
+
+    async  updateById(data: Prisma.ProjetosUncheckedUpdateInput, id: string)  {
+        
+        const projeto = await prisma.projetos.update({
+           data: {
+            ...data,
+            updatedAt: new Date()
+           },
+            where: {
+                id
+            }
+        })
+
+        return projeto
+    }
 }
