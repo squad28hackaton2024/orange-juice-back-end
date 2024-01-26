@@ -21,16 +21,4 @@ export class ProjetosRepository implements IProjetos {
 
         return projeto
     }
-
-    async findById(id: string) {
-        const usuario = await prisma.usuarios.findFirst({
-            where: {
-                id
-            }
-        })
-
-        if(!usuario) return null
-
-        return usuario
-    }
 }
