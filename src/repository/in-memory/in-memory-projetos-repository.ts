@@ -24,4 +24,12 @@ export class InMemoryProjetosRepository implements IProjetos {
         return projeto
     }
 
+    async deleteById(id: string) {
+        const indiceUsuario = this.projetos.findIndex(usuario => usuario.id === id)
+
+        this.projetos = this.projetos.splice(1, indiceUsuario)
+
+        return this.projetos[indiceUsuario]
+    }
+
 }

@@ -11,4 +11,26 @@ export class ProjetosRepository implements IProjetos {
 
         return projeto
     }
+
+    async deleteById(id: string) {
+        const projeto = await prisma.projetos.delete({
+            where: {
+                id
+            }
+        })
+
+        return projeto
+    }
+
+    async findById(id: string) {
+        const usuario = await prisma.usuarios.findFirst({
+            where: {
+                id
+            }
+        })
+
+        if(!usuario) return null
+
+        return usuario
+    }
 }
