@@ -58,7 +58,7 @@ describe('Create Projetos Service', () => {
 
         expect(projetos).toEqual(expect.objectContaining({
             id: expect.any(String),
-            imagem: 'imaaaagem',
+            imagens: 'imaaaagem',
         }))
     })
 })
