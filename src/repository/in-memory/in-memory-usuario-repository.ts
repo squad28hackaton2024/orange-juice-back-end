@@ -31,4 +31,12 @@ export class InMemoryUsuarioRepository implements IUsuarios {
         return usuario
     }
 
+    async findById(id: string) {
+        const usuario = this.usuarios.find(usuario => usuario.id === id)
+
+        if(!usuario) return null
+
+        return usuario
+    }
+
 }
