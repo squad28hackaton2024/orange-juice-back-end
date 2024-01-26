@@ -4,6 +4,7 @@ import { usuarioRoutes } from "./rotas/usuario-routes";
 import fastifyJwt from "@fastify/jwt";
 import { env } from "./env/env";
 import multer from "fastify-multer";
+import { projetosRoutes } from "./rotas/projetos-routes";
 
 export const app = fastify()
 
@@ -15,6 +16,10 @@ app.register(multer.contentParser)
 
 app.register(usuarioRoutes, {
     prefix: '/usuarios'
+})
+
+app.register(projetosRoutes, {
+    prefix: '/projetos'
 })
 
 app.setErrorHandler((error, _, reply) => {
