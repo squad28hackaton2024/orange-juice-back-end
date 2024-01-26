@@ -1,4 +1,4 @@
-import { IProjetos } from "@/interface/i-projetos";
+import { IProjetos } from "../../interface/i-projetos"
 import { Prisma, Projetos } from "@prisma/client";
 import { randomUUID } from "node:crypto";
 
@@ -30,6 +30,9 @@ export class InMemoryProjetosRepository implements IProjetos {
         this.projetos = this.projetos.splice(1, indiceUsuario)
 
         return this.projetos[indiceUsuario]
+    }
+    async findAll() {
+        return this.projetos
     }
 
 }
