@@ -1,7 +1,6 @@
 import { IProjetos } from "@/interface/i-projetos";
 import { Projetos } from "@prisma/client";
 
-
 interface FindAllProjetosResponse {
     projetos: Projetos[]
 }
