@@ -26,7 +26,7 @@ describe('Create Projetos Service', () => {
         const { projetos } = await sut.handle({
             titulo: 'projeto top',
             descricao: 'que descricao boa',
-            imagem: 'imaaaagem',
+            imagens: 'imaaaagem',
             link: 'http://link.com.br',
             tags: ['ux', 'dev'],
             usuariosId: 'meu-id'
@@ -34,7 +34,7 @@ describe('Create Projetos Service', () => {
 
         expect(projetos).toEqual(expect.objectContaining({
             id: expect.any(String),
-            imagem: 'imaaaagem',
+            imagens: 'imaaaagem',
         }))
     })
 
@@ -50,7 +50,7 @@ describe('Create Projetos Service', () => {
         const { projetos } = await sut.handle({
             titulo: 'projeto top',
             descricao: 'que descricao boa',
-            imagem: 'imaaaagem',
+            imagens: 'imaaaagem',
             link: 'http://link.com.br',
             tags: ['ux', 'dev'],
             usuariosId: 'meu-id'

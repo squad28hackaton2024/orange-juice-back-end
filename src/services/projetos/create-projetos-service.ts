@@ -6,7 +6,7 @@ interface CreateProjetosRequest {
     tags: string[]
     link: string
     descricao: string
-    imagem: string
+    imagens: string
     usuariosId: string
 }
 
