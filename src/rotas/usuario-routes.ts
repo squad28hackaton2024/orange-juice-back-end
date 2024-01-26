@@ -7,5 +7,3 @@ export async function usuarioRoutes(app: FastifyInstance) {
     app.post('/', create)
     app.post('/login', authenticate)
 }
-
-// teste 
