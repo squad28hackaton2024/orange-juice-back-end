@@ -37,7 +37,7 @@ export async function create(request: IMulterRequest, reply: FastifyReply) {
         })
 
         return reply.status(201).send({
-            message: 'Projeto Criado',
+            message: 'Projeto adicionado com sucesso! ',
             projetos
         })
     } catch (error) {
