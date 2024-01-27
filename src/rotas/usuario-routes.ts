@@ -1,4 +1,5 @@
-import { authenticate } from "@/controller/usuarios/autenticate";
+
+import { authenticate } from "@/controller/usuarios/authenticate";
 import { create } from "@/controller/usuarios/create";
 import { FastifyInstance } from "fastify";
 
