@@ -14,15 +14,14 @@ export async function updateImagem(request: IMulterRequest, reply: FastifyReply)
         id: z.string()
     })
 
-    const { originalname } = getFileSchema.parse(request.file)
+    const { originalname: name } = getFileSchema.parse(request.file)
     const { id } = getParamSchema.parse(request.params)
 
     const updateImagemById = makeUpdateImagem()
 
-
     try {
         const { projetos } = await updateImagemById.handle({
-            imagens: originalname
+            imagens: name
         }, id)
 
         return reply.status(200).send({
