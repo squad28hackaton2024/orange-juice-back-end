@@ -34,7 +34,7 @@ export async function update(request: FastifyRequest, reply: FastifyReply) {
         }, id)
 
         return reply.status(200).send({
-            message: 'Atualizado com sucesso',
+            message: 'Edição concluída com sucesso',
             projetos
         })
     } catch (error) {

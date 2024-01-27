@@ -26,7 +26,7 @@ export async function updateImagem(request: IMulterRequest, reply: FastifyReply)
         }, id)
 
         return reply.status(200).send({
-            message: 'Atualizado com sucesso',
+            message: 'Edição concluída com sucesso',
             projetos
         })
     } catch (error) {

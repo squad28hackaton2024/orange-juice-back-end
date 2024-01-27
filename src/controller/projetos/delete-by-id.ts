@@ -22,7 +22,7 @@ export async function deleteById(request: FastifyRequest, reply: FastifyReply) {
         })
 
         return reply.status(200).send({
-            message: 'Projeto Deletado',
+            message: 'Projeto deletado com sucesso!',
             projetos
         })
     } catch (error) {
