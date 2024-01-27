@@ -23,7 +23,11 @@ export class ProjetosRepository implements IProjetos {
     }
 
     async findAll() {
-        const projeto = await prisma.projetos.findMany()
+        const projeto = await prisma.projetos.findMany({
+            include: {
+                usuarios: true
+            }
+        })
 
         return projeto
     }
