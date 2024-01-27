@@ -18,7 +18,7 @@ export async function create(request: IMulterRequest, reply: FastifyReply) {
     })
 
     const { titulo, tags, link, descricao } = getBodySchema.parse(request.body)
-    const { originalname } = getFileSchema.parse(request.file)
+    const { originalname: name} = getFileSchema.parse(request.file)
 
     const createProjetoService = makeCreateProjeto()
 
@@ -32,7 +32,7 @@ export async function create(request: IMulterRequest, reply: FastifyReply) {
             tags: transformandoTagsParaArray,
             link,
             descricao,
-            imagens: originalname,
+            imagens: name,
             usuariosId: sub
         })
 
