@@ -42,6 +42,14 @@ export class InMemoryProjetosRepository implements IProjetos {
 
     async updateById(data: Prisma.ProjetosUncheckedUpdateInput, id: string) {
         return this.projetos[0]
-     }
+    }
+
+    async findById(id: string) {
+        const projeto = this.projetos.find(projeto => projeto.id === id)
+
+        if(!projeto) return null
+
+        return projeto
+    }
 
 }
