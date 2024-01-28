@@ -1,6 +1,7 @@
 import { create } from "@/controller/projetos/create";
 import { deleteById } from "@/controller/projetos/delete-by-id";
 import { findAll } from "@/controller/projetos/find-all";
+import { findById } from "@/controller/projetos/find-by-id";
 import { update } from "@/controller/projetos/update";
 import { updateImagem } from "@/controller/projetos/update-imagem";
 import { jwtVerifyToken } from "@/middleware/jwt-verify-token";
@@ -13,6 +14,10 @@ export async function projetosRoutes(app: FastifyInstance) {
         onRequest: [jwtVerifyToken],
         preHandler: upload.single('imagens')
     }, create)
+
+    app.get('/:id', {
+        onRequest: [jwtVerifyToken]
+    }, findById)
 
     app.get('/', {
         onRequest: [jwtVerifyToken]
