@@ -32,8 +32,8 @@ export class InMemoryProjetosRepository implements IProjetos {
         return this.projetos[indiceUsuario]
     }
     
-    async findAll() {
-        return this.projetos
+    async findAll(tag?: string[]) {
+       return this.projetos
     }
 
     async updateImagemById(id: string, imagem?: string | undefined){

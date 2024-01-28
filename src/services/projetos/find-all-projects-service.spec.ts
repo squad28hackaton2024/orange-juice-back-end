@@ -44,10 +44,8 @@ describe('Find all Projetos Service', () => {
             tags: ['java', 'back']
         })
 
-        const { projetos } = await sut.handle()
+        const { projetos } = await sut.handle({})
 
         expect(projetos).toHaveLength(2)
     })
-
-
 })
