@@ -7,4 +7,5 @@ export interface IProjetos {
     findAll(): Promise<Projetos[]>
     updateImagemById(id: string, imagens?: string): Promise<Projetos>
     updateById(data: Prisma.ProjetosUncheckedUpdateInput, id: string): Promise<Projetos>
+    findById(id: string): Promise<Projetos | null>
 }

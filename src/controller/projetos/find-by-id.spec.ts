@@ -2,9 +2,9 @@ import { app } from '@/app'
 import request from 'supertest'
 import path from 'node:path'
 
-const filePath = path.resolve(__dirname, '../../../tmp/storage', 'laranja.jpeg')
+const filePath = path.resolve(__dirname, '../../../tmp/storage', 'chipi.jpeg')
 
-describe('Update Projeto [PUT]', () => {
+describe('Find By Id Projetos [GET]', () => {
 
     beforeAll(async () => {
         await app.ready()
@@ -14,7 +14,7 @@ describe('Update Projeto [PUT]', () => {
         await app.close()
     })
 
-    it('Deve atualizar uma imagem', async () => {
+    it('Deve encontrar todos os projetos', async () => {
         await request(app.server)
                 .post('/usuarios')
                 .send({
@@ -33,7 +33,7 @@ describe('Update Projeto [PUT]', () => {
 
         const { token } = usuario.body
         
-        const projetos = await request(app.server)
+        await request(app.server)
                 .post('/projetos')
                 .set('Authorization', `Bearer ${token}`)
                 .field('titulo', 'projeto top')
@@ -41,17 +41,21 @@ describe('Update Projeto [PUT]', () => {
                 .field('link', 'aaaaa')
                 .field('tags', 'ux , dev')
                 .attach('imagens', filePath)
-            
-        
 
-        const { id } = projetos.body.projetos
-        
-        await request(app.server)
-                .put(`/projetos/${id}`)
+        const projetos = await request(app.server)
+                .post('/projetos')
                 .set('Authorization', `Bearer ${token}`)
-                .send({
-                    "titulo": "novo titulo"
-                })
+                .field('titulo', 'projeto legal')
+                .field('descricao', 'que descricao bacana')
+                .field('link', 'pega ai por favor')
+                .field('tags', 'front , back')
+                .attach('imagens', filePath)
+
+        const {id} = projetos.body.projetos
+
+        await request(app.server)
+                .get(`/projetos/${id}`)
+                .set('Authorization', `Bearer ${token}`)
                 .expect(200)
 
     })
