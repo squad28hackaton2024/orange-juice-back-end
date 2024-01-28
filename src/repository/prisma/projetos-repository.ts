@@ -22,14 +22,27 @@ export class ProjetosRepository implements IProjetos {
         return projeto
     }
 
-    async findAll() {
-        const projeto = await prisma.projetos.findMany({
+    async findAll(tag?: string[]) {
+        if(tag != null) {
+            const projeto = await prisma.projetos.findMany({
+                include: {
+                    usuarios: true
+                },
+                where: {
+                    tags: {
+                        hasSome: tag
+                    }
+                }
+            })
+            return projeto
+        }
+
+        return await prisma.projetos.findMany({
             include: {
                 usuarios: true
             }
         })
-
-        return projeto
+        
     }
 
     async  updateImagemById( id: string, imagens?: string)  {
