@@ -88,4 +88,19 @@ export class ProjetosRepository implements IProjetos {
 
         return projeto
     }
+
+    async findByUsuariosId(usuariosId: string) {
+        const projeto = await prisma.projetos.findMany({
+            where: {
+                usuariosId
+            },
+            include: {
+                usuarios: true
+            }
+        })
+
+        if(!projeto) return null
+
+        return projeto
+    }
 }
