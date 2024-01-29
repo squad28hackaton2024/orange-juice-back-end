@@ -27,7 +27,7 @@ export const upload = multer({
 			randomBytes(16, (err, hash) => {
 				if (err) cb(err)
 
-				const filename = `${hash.toString('hex')}-${file.originalname}`
+				const filename = `${file.originalname}`
 
 				cb(null, filename)
 			})
