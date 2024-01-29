@@ -22,6 +22,7 @@
   "dependencies": {
     "@fastify/cors": "8.5.0",
     "@fastify/jwt": "8.0.0",
+    "@fastify/static": "6.12.0",
     "@types/bcryptjs": "2.4.6",
     "bcryptjs": "2.4.3",
     "dotenv": "16.4.0",

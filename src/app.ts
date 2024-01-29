@@ -6,6 +6,8 @@ import { ZodError } from "zod";
 import { env } from "./env/env";
 import { projetosRoutes } from "./rotas/projetos-routes";
 import { usuarioRoutes } from "./rotas/usuario-routes";
+import fastifyStatic from "@fastify/static";
+import path from "node:path";
 
 export const app = fastify()
 
@@ -14,7 +16,12 @@ app.register(fastifyCors, {
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']
 })
 
-app.register(fastifyJwt,{
+app.register(fastifyStatic, {
+    root: path.join(__dirname, '../', 'tmp', 'storage'),
+    prefix: '/uploads/'
+})
+
+app.register(fastifyJwt,{ 
     secret:env.JWT_SECRET
 })
 
