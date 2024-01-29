@@ -52,4 +52,12 @@ export class InMemoryProjetosRepository implements IProjetos {
         return projeto
     }
 
+    async findByUsuariosId(usuariosId: string) {
+        const projeto = this.projetos.find(projeto => projeto.usuariosId === usuariosId)
+
+        if(!projeto) return null
+
+        return [projeto]
+    }
+
 }

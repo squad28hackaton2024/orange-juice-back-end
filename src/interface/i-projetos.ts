@@ -8,4 +8,5 @@ export interface IProjetos {
     updateImagemById(id: string, imagens?: string): Promise<Projetos>
     updateById(data: Prisma.ProjetosUncheckedUpdateInput, id: string): Promise<Projetos>
     findById(id: string): Promise<Projetos | null>
+    findByUsuariosId(usuariosId: string): Promise<Projetos[] | null>
 }

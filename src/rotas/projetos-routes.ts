@@ -2,6 +2,7 @@ import { create } from "@/controller/projetos/create";
 import { deleteById } from "@/controller/projetos/delete-by-id";
 import { findAll } from "@/controller/projetos/find-all";
 import { findById } from "@/controller/projetos/find-by-id";
+import { findByUsuariosId } from "@/controller/projetos/find-by-usuario-id";
 import { update } from "@/controller/projetos/update";
 import { updateImagem } from "@/controller/projetos/update-imagem";
 import { jwtVerifyToken } from "@/middleware/jwt-verify-token";
@@ -22,6 +23,10 @@ export async function projetosRoutes(app: FastifyInstance) {
     app.get('/', {
         onRequest: [jwtVerifyToken]
     }, findAll)
+
+    app.get('/usuarios', {
+        onRequest: [jwtVerifyToken]
+    }, findByUsuariosId)
     
     app.delete('/:id',{
         onRequest: [jwtVerifyToken]
