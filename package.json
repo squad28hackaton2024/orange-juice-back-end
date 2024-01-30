@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Hackathon Orange Juice Back End",
   "main": "index.js",
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "scripts": {
     "test:env:create": "npm link ./prisma/vitest-environment-prisma",
     "test:env:install": "npm link vitest-environment-prisma",
