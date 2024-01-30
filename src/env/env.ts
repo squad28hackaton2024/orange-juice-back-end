@@ -7,7 +7,7 @@ if(process.env.NODE_ENV !== 'dev') {
 
 const envSchema = z.object({
     PORT: z.coerce.number().default(8080),
-    NODE_ENV: z.enum(['dev','test', 'produdction']).default('dev'),
+    NODE_ENV: z.enum(['dev','test', 'production']).default('dev'),
     JWT_SECRET: z.string()
 })
 
