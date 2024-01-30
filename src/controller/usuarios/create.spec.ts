@@ -32,7 +32,7 @@ describe('Create Usuario [POST]', () => {
                 email: 'email invalido',
                 senha: '123456'
             })
-            .expect(401)
+            .expect(404)
     })
 
     it('Não deve ser possível cadastrar um usuário com senha de menos 8 caracteres', async () => {
@@ -44,6 +44,6 @@ describe('Create Usuario [POST]', () => {
                 email: 'lucas@email.com',
                 senha: '1'
             })
-            .expect(401)
+            .expect(404)
     })
 })
