@@ -7,13 +7,20 @@ export async function findByUsuariosId(request: FastifyRequest, reply: FastifyRe
 
     await request.jwtVerify()
 
+    const getSearchParam = z.object({
+        tag: z.string().array().optional()
+    })
+
+    const { tag } = getSearchParam.parse(request.query)
+
     const findProjetoByUsuariosIdService = makeFindByUsuariosIdProjeto()
 
     const { sub } = request.user
 
     try {
         const { projeto } = await findProjetoByUsuariosIdService.handle({
-            usuariosId: sub
+            usuariosId: sub,
+            tag
         })
 
         return reply.status(200).send({

@@ -4,6 +4,7 @@ import { Projetos } from "@prisma/client";
 
 interface FindProjetosUsuariosByIdRequest {
     usuariosId: string
+    tag?: string[]
 }
 
 interface FindProjetosUsuariosByIdResponse {
@@ -16,7 +17,7 @@ export class FindProjetosUsuariosByIdService {
     constructor(private projetosRepository: IProjetos) {}
 
     async handle(data: FindProjetosUsuariosByIdRequest): Promise<FindProjetosUsuariosByIdResponse> {
-        const projeto = await this.projetosRepository.findByUsuariosId(data.usuariosId)
+        const projeto = await this.projetosRepository.findByUsuariosId(data.usuariosId, data.tag)
 
         if(!projeto) throw new ProjetoNaoEncontradoError()
 
