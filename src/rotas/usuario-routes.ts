@@ -5,6 +5,59 @@ import { FastifyInstance } from "fastify";
 
 export async function usuarioRoutes(app: FastifyInstance) {
 
-    app.post('/', create)
-    app.post('/login', authenticate)
+    app.post('/', {
+        schema: {
+          description: 'Cadastro de usuários',
+          summary: 'Cadastro de usuários',
+          body: {
+            type: 'object',
+            required: ['nome', 'sobrenome', 'email', 'senha'],
+            properties: {
+                nome: { type: 'string' },
+                sobrenome: { type: 'string'},
+                email: { type: 'string'},
+                senha: { type: 'string' },
+            }
+          },
+          response: {
+            201: {
+                description: 'Cadastro feito com sucesso',
+                type: 'object',
+                properties: {
+                  nome: { type: 'string' },
+                  sobrenome: { type: 'string'},
+                  email: { type: 'string'},
+                  senha: { type: 'string' },
+                }
+            }
+          }
+        }
+    }, create)
+
+    app.post('/login', {
+        schema: {
+            description: 'Login de usuários',
+            summary: 'Login de usuários',
+            body: {
+              type: 'object',
+              properties: {
+                  email: { type: 'string'},
+                  senha: { type: 'string' },
+              }
+            },
+            response: {
+              201: {
+                  description: 'Usuário Logado',
+                  type: 'object',
+                  properties: {
+                    nome: { type: 'string' },
+                    sobrenome: { type: 'string'},
+                    email: { type: 'string'},
+                    senha: { type: 'string' },
+                    token: { type: 'string' }
+                  }
+              }
+            }
+          }
+    }, authenticate)
 }
