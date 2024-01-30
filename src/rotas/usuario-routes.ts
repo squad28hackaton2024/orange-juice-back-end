@@ -8,8 +8,10 @@ export async function usuarioRoutes(app: FastifyInstance) {
     app.post('/', {
         schema: {
           description: 'Cadastro de usuários',
+          summary: 'Cadastro de usuários',
           body: {
             type: 'object',
+            required: ['nome', 'sobrenome', 'email', 'senha'],
             properties: {
                 nome: { type: 'string' },
                 sobrenome: { type: 'string'},
@@ -35,6 +37,7 @@ export async function usuarioRoutes(app: FastifyInstance) {
     app.post('/login', {
         schema: {
             description: 'Login de usuários',
+            summary: 'Login de usuários',
             body: {
               type: 'object',
               properties: {

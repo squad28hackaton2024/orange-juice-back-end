@@ -11,9 +11,9 @@ import { FastifyInstance } from "fastify";
 
 export async function projetosRoutes(app: FastifyInstance) {
 
-    app.post('/',{
+    app.post('/', {
         onRequest: [jwtVerifyToken],
-        preHandler: upload.single('imagens')
+        preHandler: upload.single('imagens'),
     }, create)
 
     app.get('/:id', {
