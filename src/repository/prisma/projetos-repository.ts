@@ -89,10 +89,25 @@ export class ProjetosRepository implements IProjetos {
         return projeto
     }
 
-    async findByUsuariosId(usuariosId: string) {
+    async findByUsuariosId(usuariosId: string, tag?: string[]) {
+        if(tag) {
+            return await prisma.projetos.findMany({
+                where: {
+                    usuariosId,
+                    tags: {
+                        hasSome: tag
+                    }
+                
+                },
+                include: {
+                    usuarios: true
+                }
+            })
+        }
+
         const projeto = await prisma.projetos.findMany({
             where: {
-                usuariosId
+              usuariosId
             },
             include: {
                 usuarios: true
@@ -104,3 +119,4 @@ export class ProjetosRepository implements IProjetos {
         return projeto
     }
 }
+
