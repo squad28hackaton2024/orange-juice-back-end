@@ -1,9 +1,13 @@
 import 'dotenv/config'
 import { z } from 'zod'
 
+if(process.env.NODE_ENV !== 'dev') {
+    process.env.NODE_ENV = 'production'
+}
+
 const envSchema = z.object({
     PORT: z.coerce.number().default(8080),
-    NODE_ENV: z.enum(['dev','test', 'prod']).default('dev'),
+    NODE_ENV: z.enum(['dev','test', 'produdction']).default('dev'),
     JWT_SECRET: z.string()
 })
 
