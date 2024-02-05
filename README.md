@@ -23,8 +23,7 @@ $ npm install
 $ docker-compose up --build
 
 # Variáveis de ambiente
-$ Olhe o arquivo chamado .env.example para criar as variáveis de ambiente utilizadas no projeto
-$ Crie um arquivo com o nome .env na pasta raíz do projeto, copie o exemplo dado no passo acima e altere para a porta de preferência e a variável JWT_SECRET
+$ Crie um arquivo com o nome .env na pasta raíz do projeto, copie e cole o que está dentro do arquivo .env.example
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm run start:dev
@@ -39,4 +38,4 @@ $ npm run test:unit
 $ npm run test:e2e 
 $ sudo npm run test:e2e -> para usuários unix que estiverem com problema ao rodar o comando acima
 
-# O servidor inciará na porta:8080 por padrão - acesse <http://localhost:8080> 
+# O servidor inciará na porta:8080 por padrão - acesse <http://localhost:8080>
