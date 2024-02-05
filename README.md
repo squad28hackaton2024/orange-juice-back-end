@@ -29,6 +29,9 @@ $ Crie um arquivo com o nome .env na pasta raíz do projeto, copie o exemplo dad
 # Execute a aplicação em modo de desenvolvimento
 $ npm run start:dev
 
+# Execute o comando npx
+$ npx prisma migrate dev
+
 # Testes Unitários
 $ npm run test:unit
 
